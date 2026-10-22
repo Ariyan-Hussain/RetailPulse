@@ -1,15 +1,34 @@
 -- Technical validation only. These queries do not calculate business KPIs.
 USE retailpulse;
 
--- Imported row counts; compare with docs/DATA_QUALITY_AUDIT.md.
-SELECT 'customers' AS table_name, COUNT(*) AS actual_rows FROM customers
-UNION ALL SELECT 'orders', COUNT(*) FROM orders
-UNION ALL SELECT 'order_items', COUNT(*) FROM order_items
-UNION ALL SELECT 'payments', COUNT(*) FROM payments
-UNION ALL SELECT 'reviews', COUNT(*) FROM reviews
-UNION ALL SELECT 'products', COUNT(*) FROM products
-UNION ALL SELECT 'sellers', COUNT(*) FROM sellers
-UNION ALL SELECT 'product_category_translations', COUNT(*) FROM product_category_translations;
+-- Compare actual row counts with the approved source CSV row counts.
+SELECT expected_counts.table_name,
+       expected_counts.expected_rows,
+       actual_counts.actual_rows,
+       actual_counts.actual_rows - expected_counts.expected_rows AS difference,
+       CASE WHEN actual_counts.actual_rows = expected_counts.expected_rows
+            THEN 'PASS' ELSE 'CHECK' END AS count_status
+FROM (
+    SELECT 'customers' AS table_name, 99441 AS expected_rows
+    UNION ALL SELECT 'orders', 99441
+    UNION ALL SELECT 'order_items', 112650
+    UNION ALL SELECT 'payments', 103886
+    UNION ALL SELECT 'reviews', 99224
+    UNION ALL SELECT 'products', 32951
+    UNION ALL SELECT 'sellers', 3095
+    UNION ALL SELECT 'product_category_translations', 71
+) AS expected_counts
+JOIN (
+    SELECT 'customers' AS table_name, COUNT(*) AS actual_rows FROM customers
+    UNION ALL SELECT 'orders', COUNT(*) FROM orders
+    UNION ALL SELECT 'order_items', COUNT(*) FROM order_items
+    UNION ALL SELECT 'payments', COUNT(*) FROM payments
+    UNION ALL SELECT 'reviews', COUNT(*) FROM reviews
+    UNION ALL SELECT 'products', COUNT(*) FROM products
+    UNION ALL SELECT 'sellers', COUNT(*) FROM sellers
+    UNION ALL SELECT 'product_category_translations', COUNT(*) FROM product_category_translations
+) AS actual_counts USING (table_name)
+ORDER BY expected_counts.table_name;
 
 -- Constraint definitions show the primary and foreign keys currently applied.
 SHOW CREATE TABLE customers;

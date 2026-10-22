@@ -77,4 +77,6 @@ Raw Olist CSV files are stored locally under `data/raw/` and excluded from Git b
 
 ### Current Project Status
 
-**Phase 4 - Cleaning and schema design.** The nine original Olist CSV files remain unchanged under `data/raw/`. Dataset inspection, the cleaning strategy, and the proposed MySQL analytical schema are documented. No cleaned outputs, database, business analysis, or dashboard have been created.
+**Phase 5 — MySQL data layer successfully built and validated.** The `retailpulse` database and eight designed tables were cleanly loaded from the original Olist CSVs. Reported row counts match the source counts for all eight tables, and tested orphan checks returned zero. Import details and technical validation results are recorded in [`docs/IMPORT_VALIDATION.md`](docs/IMPORT_VALIDATION.md).
+
+Business analysis is not complete. SQL business analysis, Python EDA, and Power BI reporting remain future project phases. No revenue, profit, retention, or other business findings are claimed at this stage.
