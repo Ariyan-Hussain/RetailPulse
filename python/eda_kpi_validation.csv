@@ -1,0 +1,8 @@
+metric,python_value,sql_definition_reference,validation_status
+Delivered order count,96478,sql/05_analysis_foundation.sql,Definition reproduced; SQL numeric output unavailable
+Unique delivered customers,93358,sql/05_analysis_foundation.sql,Definition reproduced; SQL numeric output unavailable
+Total delivered item revenue,13221498.11,sql/05_analysis_foundation.sql,Definition reproduced; SQL numeric output unavailable
+Average order value,137.0415857501192,sql/05_analysis_foundation.sql,Definition reproduced; SQL numeric output unavailable
+Monthly revenue,24 calendar-month series,sql/05_analysis_foundation.sql,Definition reproduced; SQL numeric output unavailable
+Repeat customer rate,3.0002784978255748,sql/06_customer_analysis.sql,Definition reproduced; SQL numeric output unavailable
+Second purchase rate,3.0002784978255748,sql/07_cohort_retention_analysis.sql,Same delivered customer 2+ order definition; SQL output unavailable

@@ -73,12 +73,12 @@ RetailPulse/
     └── DATASET_REQUIREMENTS.md
 ```
 
-Raw Olist CSV files are stored locally under `data/raw/` and excluded from Git by `.gitignore`. The `.gitkeep` placeholder remains trackable. The initial dataset inspection is documented in `docs/DATA_DICTIONARY.md`, `docs/DATA_MODEL_NOTES.md`, and `docs/DATA_QUALITY_AUDIT.md`. SQL analysis foundations are documented in `sql/05_analysis_foundation.sql` and `docs/KPI_DEFINITIONS.md`; Python EDA and Power BI reporting have not started.
+Raw Olist CSV files are stored locally under `data/raw/` and excluded from Git by `.gitignore`. The `.gitkeep` placeholder remains trackable. The initial dataset inspection is documented in `docs/DATA_DICTIONARY.md`, `docs/DATA_MODEL_NOTES.md`, and `docs/DATA_QUALITY_AUDIT.md`. SQL analysis foundations are documented in `sql/05_analysis_foundation.sql` and `docs/KPI_DEFINITIONS.md`. Phase 9 Python EDA outputs are documented in `docs/PYTHON_EDA_NOTES.md`; Power BI reporting has not started.
 
 ### Current Project Status
 
-**Phase 8 — Cohort and retention SQL analysis completed and runtime-verified.** The Phase 8 SQL was manually executed against MySQL and successful execution was confirmed by the project owner. KPI definitions are documented in [`docs/RETENTION_KPI_DEFINITIONS.md`](docs/RETENTION_KPI_DEFINITIONS.md). No cohort result values or business findings are published because actual outputs were not provided.
+**Phase 9 - Python EDA and statistical validation completed and runtime-verified from the raw CSVs.** Phase 8 cohort and retention SQL remains runtime-verified in MySQL. KPI definitions are documented in [`docs/RETENTION_KPI_DEFINITIONS.md`](docs/RETENTION_KPI_DEFINITIONS.md). No cohort result values or business findings are published because actual outputs were not provided.
 
 Retention is observed only within the dataset window; absence of purchase does not prove churn. Later cohorts have shorter observation windows, so immature horizons remain `NULL`. Mature-cohort comparisons require sufficient observation time: three complete post-cohort calendar months before the dataset-end month begins. Results should be interpreted descriptively.
 
-The next planned phase is Phase 9 — Python EDA & Statistical Validation. No Python EDA or Power BI work is included in Phase 8.
+Python EDA independently reproduces the approved SQL definitions from the raw CSVs; stored SQL outputs were unavailable for numeric comparison. It does not connect to MySQL or change source data. The next planned phase is Phase 10 - Power BI data model and dashboard build.
