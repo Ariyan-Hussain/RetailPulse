@@ -1,12 +1,12 @@
-# Proposed MySQL 8 Analytical Schema
+# MySQL 8 Analytical Schema
 
 ## Purpose and scope
 
-This is a schema design only. No database or table has been created, no SQL DDL has been run, and no data has been imported. The proposed schema stores Olist's confirmed grains in a project database after a later phase approves Git setup, database creation, and import.
+This document records the original schema design. In Phase 5, the `retailpulse` database and eight core tables were created, loaded, and validated. See `docs/IMPORT_VALIDATION.md` for the confirmed row counts and technical checks. The design details below preserve the intended table grains and constraints.
 
-Use `InnoDB`, `utf8mb4`, explicit `NOT NULL`/`NULL`, foreign keys for confirmed relationships, and exact `DECIMAL` types for currency. Identifiers remain strings; postal prefixes are strings to preserve leading zeroes. Proposed lengths below are initial design values and should be checked against full-file maximum lengths before DDL is written. No source values should be truncated to fit a chosen type.
+The implemented tables use `InnoDB`, `utf8mb4`, explicit `NOT NULL`/`NULL`, foreign keys for confirmed relationships, and exact `DECIMAL` types for currency. Identifiers remain strings; postal prefixes are strings to preserve leading zeroes. The lengths shown below were used in the Phase 5 DDL. Check source maxima before future schema changes, and never truncate source values to fit a chosen type.
 
-## Proposed core tables
+## Core tables
 
 ### `customers`
 
@@ -96,6 +96,6 @@ Never directly join `payments` to `order_items` by `order_id` for additive measu
 
 `customer_id` is the order-linked customer record and joins an order to `customers`. `customer_unique_id` is the source's cross-order customer identity. Future customer-level repeat counts should use `customer_unique_id`, count distinct orders, and state the order-status inclusion rule. Do not count `customer_id` as unique people across orders.
 
-## Import and constraint notes for the later phase
+## Import and constraint notes
 
-Before writing DDL, verify max string lengths, integer ranges, and decimal precision/scale from the original files, map every source column explicitly, and test that composite keys remain unique after any approved transformation. Import order should satisfy parent tables before child tables: customers/products/sellers, then orders, then order items/payments/reviews; translations can load independently. Use a staging/validation step before adding constraints if it helps diagnose errors, but retain the source and report rejected rows. The next authorized phase must separately approve Git initialization, database creation, table creation, and data import.
+For future schema changes, verify max string lengths, integer ranges, and decimal precision/scale from the original files, map every source column explicitly, and test that composite keys remain unique after any approved transformation. Import order should satisfy parent tables before child tables: customers/products/sellers, then orders, then order items/payments/reviews; translations can load independently. Use a staging/validation step before adding constraints if it helps diagnose errors, but retain the source and report rejected rows. Phase 5 implementation and import validation are recorded in `docs/IMPORT_VALIDATION.md`.

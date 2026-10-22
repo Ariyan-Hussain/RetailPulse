@@ -73,10 +73,10 @@ RetailPulse/
     └── DATASET_REQUIREMENTS.md
 ```
 
-Raw Olist CSV files are stored locally under `data/raw/` and excluded from Git by `.gitignore`. The `.gitkeep` placeholder remains trackable. The initial dataset inspection is documented in `docs/DATA_DICTIONARY.md`, `docs/DATA_MODEL_NOTES.md`, and `docs/DATA_QUALITY_AUDIT.md`. No data cleaning, SQL business analysis, Python EDA, or Power BI report has been added.
+Raw Olist CSV files are stored locally under `data/raw/` and excluded from Git by `.gitignore`. The `.gitkeep` placeholder remains trackable. The initial dataset inspection is documented in `docs/DATA_DICTIONARY.md`, `docs/DATA_MODEL_NOTES.md`, and `docs/DATA_QUALITY_AUDIT.md`. SQL analysis foundations are documented in `sql/05_analysis_foundation.sql` and `docs/KPI_DEFINITIONS.md`; Python EDA and Power BI reporting have not started.
 
 ### Current Project Status
 
-**Phase 5 — MySQL data layer successfully built and validated.** The `retailpulse` database and eight designed tables were cleanly loaded from the original Olist CSVs. Reported row counts match the source counts for all eight tables, and tested orphan checks returned zero. Import details and technical validation results are recorded in [`docs/IMPORT_VALIDATION.md`](docs/IMPORT_VALIDATION.md).
+**Phase 6 — SQL analysis foundation runtime-verified.** The foundational SQL in [`sql/05_analysis_foundation.sql`](sql/05_analysis_foundation.sql) was manually executed against MySQL and reported to complete successfully. KPI definitions are in [`docs/KPI_DEFINITIONS.md`](docs/KPI_DEFINITIONS.md). No query results or business findings are published in this README.
 
-Business analysis is not complete. SQL business analysis, Python EDA, and Power BI reporting remain future project phases. No revenue, profit, retention, or other business findings are claimed at this stage.
+Business analysis is not complete. Phase 7 — Advanced Customer & Repeat Purchase SQL Analysis — has not started. Python EDA and Power BI reporting also remain future phases. No revenue, profit, retention, or other business findings are claimed at this stage.
