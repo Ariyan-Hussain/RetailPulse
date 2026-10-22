@@ -1,4 +1,4 @@
-﻿# RetailPulse
+# RetailPulse
 
 ## E-Commerce Revenue, Customer Behaviour & Retention Analytics
 
@@ -77,6 +77,6 @@ Raw Olist CSV files are stored locally under `data/raw/` and excluded from Git b
 
 ### Current Project Status
 
-**Phase 6 — SQL analysis foundation runtime-verified.** The foundational SQL in [`sql/05_analysis_foundation.sql`](sql/05_analysis_foundation.sql) was manually executed against MySQL and reported to complete successfully. KPI definitions are in [`docs/KPI_DEFINITIONS.md`](docs/KPI_DEFINITIONS.md). No query results or business findings are published in this README.
+**Phase 7 — Advanced customer and repeat-purchase SQL analysis completed and runtime-verified.** The Phase 7 SQL was manually executed against MySQL and the project owner confirmed successful execution. Definitions are documented in [`docs/CUSTOMER_KPI_DEFINITIONS.md`](docs/CUSTOMER_KPI_DEFINITIONS.md). No query results or business findings are published here because no actual outputs were provided.
 
-Business analysis is not complete. Phase 7 — Advanced Customer & Repeat Purchase SQL Analysis — has not started. Python EDA and Power BI reporting also remain future phases. No revenue, profit, retention, or other business findings are claimed at this stage.
+The Phase 7 analysis is descriptive and uses delivered orders as the completed-purchase population. It does not claim churn, causation, profit, or business recommendations. The next planned phase is Phase 8 — Cohort & Retention Analysis. Python EDA and Power BI reporting remain future work.
