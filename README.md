@@ -77,6 +77,8 @@ Raw Olist CSV files are stored locally under `data/raw/` and excluded from Git b
 
 ### Current Project Status
 
-**Phase 7 — Advanced customer and repeat-purchase SQL analysis completed and runtime-verified.** The Phase 7 SQL was manually executed against MySQL and the project owner confirmed successful execution. Definitions are documented in [`docs/CUSTOMER_KPI_DEFINITIONS.md`](docs/CUSTOMER_KPI_DEFINITIONS.md). No query results or business findings are published here because no actual outputs were provided.
+**Phase 8 — Cohort and retention SQL analysis completed and runtime-verified.** The Phase 8 SQL was manually executed against MySQL and successful execution was confirmed by the project owner. KPI definitions are documented in [`docs/RETENTION_KPI_DEFINITIONS.md`](docs/RETENTION_KPI_DEFINITIONS.md). No cohort result values or business findings are published because actual outputs were not provided.
 
-The Phase 7 analysis is descriptive and uses delivered orders as the completed-purchase population. It does not claim churn, causation, profit, or business recommendations. The next planned phase is Phase 8 — Cohort & Retention Analysis. Python EDA and Power BI reporting remain future work.
+Retention is observed only within the dataset window; absence of purchase does not prove churn. Later cohorts have shorter observation windows, so immature horizons remain `NULL`. Mature-cohort comparisons require sufficient observation time: three complete post-cohort calendar months before the dataset-end month begins. Results should be interpreted descriptively.
+
+The next planned phase is Phase 9 — Python EDA & Statistical Validation. No Python EDA or Power BI work is included in Phase 8.
